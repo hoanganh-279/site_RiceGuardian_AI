@@ -1,0 +1,31 @@
+import wordmark from '../../assets/splash_branding.png'
+import heroBg from '../../assets/login_background.jpg'
+import { landing } from '../../data/siteCopy'
+
+export function HeroSection() {
+  return (
+    <section className="rg-hero rg-snap" aria-label="Giới thiệu RiceGuardian AI">
+      <div
+        className="rg-hero-media"
+        style={{ backgroundImage: `url(${heroBg})` }}
+        role="img"
+        aria-label="Cánh đồng lúa lúc bình minh"
+      />
+      <div className="rg-hero-overlay" aria-hidden="true" />
+      <div className="container rg-hero-content">
+        <img
+          src={wordmark}
+          alt="RiceGuardian AI"
+          className="rg-hero-wordmark"
+        />
+        <h1 className="rg-hero-headline">{landing.heroHeadline}</h1>
+        <p className="rg-hero-support">{landing.heroSupport}</p>
+        <div className="rg-hero-ctas">
+          <a href="#van-de" className="rg-btn rg-btn-secondary">
+            Khám phá ngay
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
