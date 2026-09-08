@@ -20,8 +20,7 @@ export function AccountPage() {
             Xin chào, <strong>{user.name}</strong> ({user.email}).
           </p>
           <p className="rg-section-lead mx-auto">
-            Thông tin người dùng chi tiết sẽ được bổ sung sau. Hiện đây là phiên đăng nhập mẫu (mock)
-            — chưa kết nối Google / Supabase thật.
+            Gmail này dùng để gửi và nhận phản hồi form Liên hệ.
           </p>
           <div className="d-flex flex-wrap justify-content-center gap-2">
             <Link to="/trang-chu" className="rg-btn rg-btn-outline">

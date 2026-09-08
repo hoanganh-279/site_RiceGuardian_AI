@@ -34,9 +34,9 @@ export function LandingHeader() {
   const close = () => setOpen(false)
 
   return (
-    <header className="rg-landing-header">
-      <nav className="navbar navbar-expand-lg container py-2" aria-label="Điều hướng landing">
-        <BrandLink to="/" variant="light" />
+    <header className="rg-landing-header bg-white">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white container py-2" aria-label="Điều hướng landing">
+        <BrandLink to="/" variant="dark" />
         <button
           type="button"
           className="rg-navbar-toggler d-lg-none"
@@ -58,7 +58,7 @@ export function LandingHeader() {
             <Link to="/lien-he" className="rg-btn rg-btn-secondary" onClick={close}>
               Liên hệ
             </Link>
-            <LoginButton ghost compact />
+            <LoginButton compact />
           </div>
         </div>
       </nav>

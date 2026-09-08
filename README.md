@@ -91,15 +91,15 @@ Layouts:
 
 Pricing trên Landing mang tính **giới thiệu gói** — không cổng thanh toán thật.
 
-Auth phase 1: nút “Đăng nhập với Google” + session mock (`localStorage`). Wiring Supabase / Flask / gửi mail thật — làm sau khi user mô tả.
+Auth Liên hệ: đăng nhập Google thật (client riêng, không tạo tài khoản nông dân). Lần đầu nhập mã gửi về Gmail. Form gửi qua Flask SMTP tới hộp thư dự án, `Reply-To` là Gmail khách.
 
 ---
 
 ## 5. Nội dung & nguồn dữ liệu (MVP)
 
 - Copy và dữ liệu tĩnh trong `src/data/` (từ thuyết minh dự án).
-- Tin tức: bài mẫu — nhãn “Tin mẫu”.
-- Liên hệ: form UI + `mailto:` / `tel:`; email/hotline công khai có thể là `TODO_*` đến khi cấu hình.
+- Tin tức (`/tin-tuc`): tóm tắt có trích nguồn từ báo và chuyên trang lúa gạo; ảnh chỉ lấy từ đúng bài gốc. Không phải CMS.
+- Liên hệ: form gửi qua API sau khi đăng nhập Google; nút email/hotline công khai vẫn `mailto:` / `tel:`.
 - Đội ngũ (`/gioi-thieu`): layout editorial (chân dung xen kẽ + Mentor); ảnh HD trong `src/assets/team/` (nguồn gốc `info/img/`), khung ảnh nền trắng.
 - **Không ảo hóa:** không bịa giải thưởng, số liệu %, giá, SĐT, email, đối tác nếu chưa có trong data/thuyết minh.
 

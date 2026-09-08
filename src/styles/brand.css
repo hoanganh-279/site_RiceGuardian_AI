@@ -15,7 +15,7 @@
   --rg-font-display: 'Roboto', system-ui, sans-serif;
   --rg-font-body: 'Roboto', system-ui, sans-serif;
   --rg-radius: 0.75rem;
-  --rg-header-h: 5.75rem;
+  --rg-header-h: 6.75rem;
   --bs-primary: var(--rg-primary);
   --bs-primary-rgb: 46, 125, 50;
   --bs-warning: var(--rg-secondary);

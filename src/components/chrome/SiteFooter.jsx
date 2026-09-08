@@ -13,7 +13,7 @@ export function SiteFooter() {
       <div className="container">
         <div className="row g-4">
           <div className="col-12 col-md-6 col-lg-3">
-            <BrandLink to="/trang-chu" variant="light" />
+            <BrandLink to="/" variant="light" />
             <p className="mt-3 mb-0" style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.95rem' }}>
               {brand.shortDescription}
             </p>
@@ -64,7 +64,7 @@ export function SiteFooter() {
         </div>
         <div className="rg-footer-bottom d-flex flex-column flex-md-row justify-content-between gap-2">
           <span>© {new Date().getFullYear()} {brand.name}</span>
-          <span>Website giới thiệu sản phẩm — tách biệt hệ thống quản trị</span>
+          <span>Website giới thiệu sản phẩm</span>
         </div>
       </div>
     </footer>

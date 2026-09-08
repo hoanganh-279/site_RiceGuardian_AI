@@ -1,9 +1,9 @@
-/** Liên hệ công khai — placeholder đến khi có email/hotline chính thức */
+/** Liên hệ công khai — email, hotline và địa chỉ trường. */
 export const contact = {
-  publicEmail: 'TODO_PUBLIC_EMAIL',
-  hotline: 'TODO_HOTLINE',
-  address: 'Trường Đại học Nông Lâm TP.HCM (địa điểm triển khai dự kiến)',
-  note: 'Email và hotline công khai sẽ được cập nhật. Hiện form Liên hệ dùng mailto khi đã cấu hình email.',
+  publicEmail: 'riceguardianai@gmail.com',
+  hotline: '0857333457',
+  address: 'Trường Đại học Thủ Dầu Một',
+  note: 'Đăng nhập Google trước khi gửi. Câu hỏi được gửi tới hộp thư dự án, phản hồi về đúng Gmail đã xác nhận.',
 }
 
 export function isPlaceholderContact(value) {

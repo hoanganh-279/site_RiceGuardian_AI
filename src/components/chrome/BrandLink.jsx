@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import logoMark from '../../assets/logo_launcher_foreground.png'
-import wordmark from '../../assets/splash_branding.png'
+import logoMark from '../../assets/logo_riceguardianai.png'
+import wordmark from '../../assets/RICEGUARDIAN_AI_sharpened_transparent.png'
 
-export function BrandLink({ to = '/', variant = 'light', showWordmark = false }) {
+export function BrandLink({ to = '/', variant = 'light' }) {
   const isDark = variant === 'dark'
   return (
     <Link
@@ -13,18 +13,14 @@ export function BrandLink({ to = '/', variant = 'light', showWordmark = false })
         src={logoMark}
         alt=""
         className="rg-brand-logo"
-        width={60}
-        height={60}
+        width={72}
+        height={80}
       />
-      {showWordmark ? (
-        <img
-          src={wordmark}
-          alt="RiceGuardian AI"
-          className="rg-brand-wordmark d-none d-md-block"
-        />
-      ) : (
-        <span className="rg-brand-text">RiceGuardian AI</span>
-      )}
+      <img
+        src={wordmark}
+        alt="RiceGuardian AI"
+        className="rg-brand-wordmark"
+      />
     </Link>
   )
 }

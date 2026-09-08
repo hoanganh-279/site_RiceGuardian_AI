@@ -1,8 +1,21 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../auth/AuthContext'
 
 export function LoginButton({ ghost = false, compact = false }) {
-  const { isAuthenticated, user, loginWithGoogleMock, logout } = useAuth()
+  const { isAuthenticated, user, pendingEmail, loginWithGoogle, logout, busy } = useAuth()
+  const navigate = useNavigate()
+  const [message, setMessage] = useState('')
+
+  async function onLogin() {
+    setMessage('')
+    try {
+      const data = await loginWithGoogle()
+      if (data?.needsVerification) navigate('/lien-he')
+    } catch (err) {
+      setMessage(err.message)
+    }
+  }
 
   if (isAuthenticated && user) {
     return (
@@ -29,8 +42,16 @@ export function LoginButton({ ghost = false, compact = false }) {
   }
 
   return (
-    <button type="button" className="rg-btn rg-btn-danger" onClick={loginWithGoogleMock}>
-      {compact ? 'Đăng nhập' : 'Đăng nhập với Google'}
-    </button>
+    <div className="rg-header-actions">
+      <button type="button" className="rg-btn rg-btn-danger" onClick={onLogin} disabled={busy}>
+        {busy ? 'Đang mở Google…' : compact ? 'Đăng nhập' : 'Đăng nhập với Google'}
+      </button>
+      {pendingEmail ? (
+        <Link to="/lien-he" className={`rg-btn ${ghost ? 'rg-btn-ghost' : 'rg-btn-outline'}`}>
+          Nhập mã
+        </Link>
+      ) : null}
+      {message ? <span className="small text-danger">{message}</span> : null}
+    </div>
   )
 }

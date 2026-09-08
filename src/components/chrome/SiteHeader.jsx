@@ -10,7 +10,7 @@ export function SiteHeader() {
   return (
     <header className="rg-site-header">
       <nav className="navbar navbar-expand-lg container py-2">
-        <BrandLink to="/trang-chu" variant="dark" showWordmark />
+        <BrandLink to="/" variant="dark" />
         <button
           type="button"
           className="rg-navbar-toggler d-lg-none"

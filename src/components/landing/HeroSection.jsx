@@ -1,4 +1,4 @@
-import wordmark from '../../assets/splash_branding.png'
+import wordmark from '../../assets/RICEGUARDIAN_AI_sharpened_transparent.png'
 import heroBg from '../../assets/login_background.jpg'
 import { landing } from '../../data/siteCopy'
 
