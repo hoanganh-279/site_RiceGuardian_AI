@@ -1,4 +1,17 @@
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '')
+const LOCAL_API = 'http://localhost:5000'
+const PUBLIC_API = 'https://riceguardian-api.onrender.com'
+
+function resolveApiBase() {
+  const fromEnv = (import.meta.env.VITE_API_URL || '').trim().replace(/\/$/, '')
+  if (fromEnv) return fromEnv
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname
+    if (host === 'localhost' || host === '127.0.0.1') return LOCAL_API
+  }
+  return PUBLIC_API
+}
+
+const API_BASE = resolveApiBase()
 
 const SITE_GOOGLE_CLIENT_ID = '431770380057-nq50vhuckunbvf5785gc488q5i5773bt.apps.googleusercontent.com'
 
