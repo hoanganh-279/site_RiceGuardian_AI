@@ -12,23 +12,20 @@ export function BenefitsSection() {
           <h2 className="rg-section-title">{benefits.title}</h2>
           <p className="rg-section-lead">{benefits.lead}</p>
         </Reveal>
-        <div className="rg-benefit-grid">
-          {benefits.items.map((item, i) => (
-            <Reveal as="article" className="rg-panel rg-benefit-card" delay={i * 80} key={item.title}>
-              {i === 0 ? (
-                <p className="rg-benefit-figure">
-                  <span>{benefits.figure}</span>
-                </p>
-              ) : (
-                <span className="rg-panel-num" aria-hidden="true">
-                  {i + 1}
-                </span>
-              )}
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              {i === 0 ? <p className="rg-benefit-note">{benefits.figureNote}</p> : null}
-            </Reveal>
-          ))}
+        <div className="rg-benefit-layout">
+          <Reveal className="rg-benefit-highlight">
+            <p className="rg-benefit-figure">{benefits.figure}</p>
+            <p className="rg-benefit-label">{benefits.figureLabel}</p>
+            <p className="rg-benefit-note">{benefits.figureNote}</p>
+          </Reveal>
+          <ul className="rg-point-list">
+            {benefits.items.map((item, i) => (
+              <Reveal as="li" delay={80 + i * 80} key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

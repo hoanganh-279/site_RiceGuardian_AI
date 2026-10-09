@@ -6,6 +6,7 @@ import { LoginButton } from './LoginButton'
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [loginError, setLoginError] = useState('')
 
   return (
     <header className="rg-site-header">
@@ -36,9 +37,16 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <LoginButton />
+          <LoginButton onError={setLoginError} />
         </div>
       </nav>
+      {loginError ? (
+        <div className="container">
+          <p className="rg-header-alert" role="alert">
+            {loginError}
+          </p>
+        </div>
+      ) : null}
     </header>
   )
 }

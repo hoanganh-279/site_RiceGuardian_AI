@@ -12,7 +12,7 @@ export function ServiceTimeline() {
           <p className="rg-kicker">Dịch vụ</p>
           <h2 className="rg-section-title">{howItWorks.title}</h2>
           <p className="rg-section-lead">
-            Bốn giai đoạn từ tiếp nhận nhu cầu đến vận hành và bảo trì — theo quy trình trong thuyết minh dự án.
+            Bốn bước từ tiếp nhận nhu cầu đến vận hành và bảo trì.
           </p>
         </Reveal>
         <ol className="rg-timeline">
@@ -26,8 +26,11 @@ export function ServiceTimeline() {
             </Reveal>
           ))}
         </ol>
-        <Reveal delay={160}>
-          <Link to="/dich-vu" className="rg-btn rg-btn-outline">
+        <Reveal delay={160} className="rg-section-actions">
+          <Link to={landing.primaryCta.to} className="rg-btn rg-btn-secondary rg-btn-cta">
+            {landing.primaryCta.label}
+          </Link>
+          <Link to="/dich-vu" className="rg-text-link">
             Xem quy trình dịch vụ
           </Link>
         </Reveal>

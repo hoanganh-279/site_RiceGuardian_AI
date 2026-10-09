@@ -1,19 +1,17 @@
-import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../auth/AuthContext'
 
-export function LoginButton({ ghost = false, compact = false }) {
+export function LoginButton({ ghost = false, compact = false, onError }) {
   const { isAuthenticated, user, pendingEmail, loginWithGoogle, logout, busy } = useAuth()
   const navigate = useNavigate()
-  const [message, setMessage] = useState('')
 
   async function onLogin() {
-    setMessage('')
+    onError?.('')
     try {
       const data = await loginWithGoogle()
       if (data?.needsVerification) navigate('/lien-he')
     } catch (err) {
-      setMessage(err.message)
+      onError?.(err.message || 'Không đăng nhập được. Thử lại sau.')
     }
   }
 
@@ -51,7 +49,6 @@ export function LoginButton({ ghost = false, compact = false }) {
           Nhập mã
         </Link>
       ) : null}
-      {message ? <span className="small text-danger">{message}</span> : null}
     </div>
   )
 }

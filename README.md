@@ -12,16 +12,16 @@ Workspace: `site/` — React (Vite) + React Router + **Bootstrap 5** (marketing)
 
 | Thành phần | Vai trò | Thư mục |
 |---|---|---|
-| Website giới thiệu | Landing + trang nội dung công khai | `site/` |
-| Website quản trị | Dashboard Admin / Manager / KTV | `web/` |
-| App nông dân | Flutter | `app/` |
-| Backend API | Flask — dùng chung Web admin + App | `backend/` |
+| Website giới thiệu | Landing + trang nội dung công khai | `site/` (+ `site/backend` cho `/api/site`) |
+| Website quản trị | Dashboard Admin / Manager / KTV | `web/` (+ `web/backend`) |
+| App nông dân | Flutter | `app/` (+ `app/backend`) |
+| Shared Flask lib | Models / services / routes theo profile | `packages/rg_core` |
 
 Ràng buộc:
 
 - `site/` và `web/` **không** import chéo component/service.
 - Không nhét trang marketing vào `web/`, không nhét dashboard vào `site/`.
-- MVP `site/` **không** phụ thuộc Flask/Supabase trừ khi user đã duyệt contract API rõ ràng.
+- Site API local: `http://localhost:5002` — xem [`site/backend/README.md`](backend/README.md).
 
 ---
 
@@ -48,6 +48,7 @@ Assets brand (trong `src/assets/`, copy từ `app/img/` — không import runtim
 | `splash_branding.png` | Wordmark tên dự án |
 | `login_background.jpg` | Hero Landing (cánh đồng) |
 | `monitoring_station.png` | Ảnh sản phẩm HW |
+| `product/sp_mobile.png`, `product/sp_dashboard.png` | Ảnh giao diện app / trang quản trị (dữ liệu mẫu — luôn kèm chú thích) — nguồn `info/product/` |
 
 Không đổi palette / theme / nav / layout lớn ngoài phạm vi task — nếu cần: mô tả và **chờ xác nhận**.
 
@@ -69,10 +70,15 @@ Hero Landing: ảnh full-bleed + overlay đủ tối để **chữ / wordmark đ
 ## 4. Information architecture (đã chốt)
 
 ```
-/                    → Landing (một trang dài, bao quát sản phẩm)
-  CTA “Khám phá ngay” / “Đi đến trang chủ”
+/                    → Landing chuyển đổi (Hero, Vấn đề, Giải pháp, Sản phẩm, Lợi ích, Bảng giá, FAQ, CTA cuối)
+  CTA chính “Đăng ký tư vấn” → /lien-he (hero, dịch vụ, bảng giá, CTA cuối, thanh CTA mobile)
+  Phụ: tel:/mailto: ở CTA cuối; link “Đi đến trang chủ”
         ↓
-/trang-chu           → Trang chủ site (nav đầy đủ)
+/trang-chu           → Trang chủ site (nav đầy đủ) — bố cục tham khảo rynantech.vn:
+                       Hero → Giới thiệu + đội ngũ → Giá trị cốt lõi → Công nghệ cốt lõi (6 ô)
+                       → Quy trình dịch vụ (tab desktop / danh sách mobile) → Dải CTA hotline
+                       → Hệ sinh thái sản phẩm → Hỗ trợ (hotline / Liên hệ) → Tin mới nhất (3 bài)
+                       Không có khối logo đối tác, tải app store, bộ đếm khách hàng (chưa có dữ liệu thật).
 /gioi-thieu          → Đội ngũ / giới thiệu dự án
 /dich-vu             → Dịch vụ
 /giai-phap           → Giải pháp

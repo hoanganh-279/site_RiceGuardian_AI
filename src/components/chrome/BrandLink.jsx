@@ -16,11 +16,11 @@ export function BrandLink({ to = '/', variant = 'light' }) {
         width={72}
         height={80}
       />
-      <img
-        src={wordmark}
-        alt="RiceGuardian AI"
-        className="rg-brand-wordmark"
-      />
+      {isDark ? (
+        <span className="rg-brand-wordtext">RICEGUARDIAN AI</span>
+      ) : (
+        <img src={wordmark} alt="RiceGuardian AI" className="rg-brand-wordmark" />
+      )}
     </Link>
   )
 }

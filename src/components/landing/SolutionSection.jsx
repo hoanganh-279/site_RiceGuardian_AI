@@ -12,14 +12,9 @@ export function SolutionSection() {
           <h2 className="rg-section-title">{solution.title}</h2>
           <p className="rg-section-lead">{solution.lead}</p>
         </Reveal>
-        <div className="rg-tier-track">
+        <ol className="rg-tier-track">
           {solution.tiers.map((tier, i) => (
-            <Reveal
-              as="article"
-              className="rg-panel rg-tier-card"
-              delay={i * 90}
-              key={tier.title}
-            >
+            <Reveal as="li" className="rg-tier-card" delay={i * 90} key={tier.title}>
               <span className="rg-panel-num" aria-hidden="true">
                 {i + 1}
               </span>
@@ -27,7 +22,7 @@ export function SolutionSection() {
               <p>{tier.body}</p>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

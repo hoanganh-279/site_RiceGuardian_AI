@@ -31,6 +31,7 @@ function NavItem({ href, label, onNavigate }) {
 
 export function LandingHeader() {
   const [open, setOpen] = useState(false)
+  const [loginError, setLoginError] = useState('')
   const close = () => setOpen(false)
 
   return (
@@ -58,10 +59,17 @@ export function LandingHeader() {
             <Link to="/lien-he" className="rg-btn rg-btn-secondary" onClick={close}>
               Liên hệ
             </Link>
-            <LoginButton compact />
+            <LoginButton compact onError={setLoginError} />
           </div>
         </div>
       </nav>
+      {loginError ? (
+        <div className="container">
+          <p className="rg-header-alert" role="alert">
+            {loginError}
+          </p>
+        </div>
+      ) : null}
     </header>
   )
 }

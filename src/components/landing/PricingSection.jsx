@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { pricingPackages, pricingDisclaimer } from '../../data/pricing'
+import { landing } from '../../data/siteCopy'
 import { Reveal } from './Reveal'
 
 export function PricingSection() {
@@ -10,7 +12,7 @@ export function PricingSection() {
           <h2 className="rg-section-title">Hai gói dịch vụ theo quy mô</h2>
           <p className="rg-section-lead">{pricingDisclaimer}</p>
         </Reveal>
-        <div className="rg-pricing-grid" id="bang-gia">
+        <div className="rg-pricing-grid">
           {pricingPackages.map((pkg, i) => (
             <Reveal
               as="article"
@@ -30,7 +32,14 @@ export function PricingSection() {
                   ))}
                 </tbody>
               </table>
-              <p className="rg-price-note mb-0">{pkg.note}</p>
+              <p className="rg-price-note">{pkg.note}</p>
+              <Link
+                to={landing.primaryCta.to}
+                className="rg-btn rg-btn-secondary rg-btn-cta rg-pricing-cta"
+                aria-label={`${landing.primaryCta.label} ${pkg.name}`}
+              >
+                {landing.primaryCta.label} gói này
+              </Link>
             </Reveal>
           ))}
         </div>

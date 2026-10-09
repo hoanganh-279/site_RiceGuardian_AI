@@ -1,19 +1,32 @@
-const LOCAL_API = 'http://localhost:5000'
-const PUBLIC_API = 'https://riceguardian-api.onrender.com'
+const LOCAL_API = 'http://localhost:5002'
+const PUBLIC_API = 'https://riceguardian-site-api.onrender.com'
+
+function isLoopbackHost(hostname) {
+  return hostname === 'localhost' || hostname === '127.0.0.1'
+}
+
+function isLoopbackUrl(url) {
+  try {
+    return isLoopbackHost(new URL(url).hostname)
+  } catch {
+    return false
+  }
+}
 
 function resolveApiBase() {
   const fromEnv = (import.meta.env.VITE_API_URL || '').trim().replace(/\/$/, '')
-  if (fromEnv) return fromEnv
-  if (typeof window !== 'undefined') {
-    const host = window.location.hostname
-    if (host === 'localhost' || host === '127.0.0.1') return LOCAL_API
-  }
+  const host = typeof window !== 'undefined' ? window.location.hostname : ''
+  const onLocalPage = isLoopbackHost(host)
+
+  // A production build must not call the developer's machine.
+  if (fromEnv && (onLocalPage || !isLoopbackUrl(fromEnv))) return fromEnv
+  if (onLocalPage) return LOCAL_API
   return PUBLIC_API
 }
 
 const API_BASE = resolveApiBase()
 
-const SITE_GOOGLE_CLIENT_ID = '431770380057-nq50vhuckunbvf5785gc488q5i5773bt.apps.googleusercontent.com'
+const SITE_GOOGLE_CLIENT_ID = '953961241555-4239gt60jg5ln954s3qd3p3dmm8ul8fj.apps.googleusercontent.com'
 
 export function googleClientId() {
   return (import.meta.env.VITE_GOOGLE_CLIENT_ID || SITE_GOOGLE_CLIENT_ID).trim()
@@ -41,7 +54,7 @@ export async function siteRequest(path, { method = 'GET', token, body } = {}) {
       body: body === undefined ? undefined : JSON.stringify(body),
     })
   } catch {
-    throw new Error('Không kết nối được máy chủ. Kiểm tra API đang chạy.')
+    throw new Error('Không kết nối được máy chủ. Thử lại sau vài giây.')
   }
 
   const data = response.headers.get('content-type')?.includes('application/json')

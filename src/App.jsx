@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthProvider } from './auth/AuthContext'
+import { ScrollToTop } from './components/chrome/ScrollToTop'
 import { LandingLayout } from './layouts/LandingLayout'
 import { SiteLayout } from './layouts/SiteLayout'
 import { LandingPage } from './pages/LandingPage'
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<LandingLayout />}>
             <Route index element={<LandingPage />} />

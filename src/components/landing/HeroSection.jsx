@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import wordmark from '../../assets/RICEGUARDIAN_AI_sharpened_transparent.png'
 import heroBg from '../../assets/login_background.jpg'
 import { landing } from '../../data/siteCopy'
@@ -21,8 +22,11 @@ export function HeroSection() {
         <h1 className="rg-hero-headline">{landing.heroHeadline}</h1>
         <p className="rg-hero-support">{landing.heroSupport}</p>
         <div className="rg-hero-ctas">
-          <a href="#van-de" className="rg-btn rg-btn-secondary">
-            Khám phá ngay
+          <Link to={landing.primaryCta.to} className="rg-btn rg-btn-secondary rg-btn-cta">
+            {landing.primaryCta.label}
+          </Link>
+          <a href={landing.heroSecondary.href} className="rg-btn rg-btn-ghost">
+            {landing.heroSecondary.label}
           </a>
         </div>
       </div>

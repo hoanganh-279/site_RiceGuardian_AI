@@ -1,5 +1,7 @@
 /** Copy từ thuyết minh dự án RiceGuardian AI — không ảo hóa số liệu ngoài nguồn. */
 
+import { productPage } from './pages'
+
 export const brand = {
   name: 'RiceGuardian AI',
   tagline:
@@ -9,24 +11,26 @@ export const brand = {
 }
 
 export const landing = {
+  primaryCta: { label: 'Đăng ký tư vấn', to: '/lien-he' },
   heroHeadline: 'Chủ động trước dịch hại lúa',
   heroSupport:
     'Theo dõi vi khí hậu tại chân ruộng, cảnh báo sớm và xác minh bằng hình ảnh — hỗ trợ hợp tác xã và bà con tối ưu chi phí vật tư.',
+  heroSecondary: { label: 'Xem cách hoạt động', href: '#giai-phap' },
   problem: {
     title: 'Điểm nghẽn của cách làm truyền thống',
-    lead: 'RiceGuardian AI giải quyết ba hạn chế phổ biến trên thị trường.',
+    lead: 'Ba hạn chế phổ biến khiến việc phòng dịch hại lúa vẫn bị động.',
     items: [
       {
         title: 'Chẩn đoán qua ảnh bị động',
-        body: 'Nhiều ứng dụng chỉ nhận diện khi đốm bệnh đã lộ trên lá — lúc đó mầm bệnh thường đã lan rộng.',
+        body: 'Chỉ nhận diện khi đốm bệnh đã lộ trên lá — lúc đó mầm bệnh thường đã lan rộng.',
       },
       {
         title: 'Trạm thời tiết vùng rộng',
-        body: 'Chỉ số chung cho cả vùng lớn khó phản ánh đúng môi trường bề mặt tán lúa và mực nước từng ô thửa.',
+        body: 'Chỉ số chung cho cả vùng khó phản ánh đúng tán lúa và mực nước từng ô thửa.',
       },
       {
         title: 'Phần mềm trang trại cồng kềnh',
-        body: 'Nhập liệu thủ công phức tạp không phù hợp thói quen nông dân ngoài đồng và ban quản lý hợp tác xã.',
+        body: 'Nhập liệu thủ công phức tạp, không hợp thói quen nông dân và ban quản lý HTX.',
       },
     ],
   },
@@ -52,6 +56,29 @@ export const landing = {
       'Mạch điều khiển tự thiết kế; cụm cảm biến đo tại chân ruộng và truyền dữ liệu về trung tâm.',
     status:
       'Dự án đang ở giai đoạn MVP phòng thí nghiệm. Bước tiếp theo là thử nghiệm thực địa trên 2–5 ha để kiểm tra độ bền thiết bị và tinh chỉnh mô hình AI — chưa phải kết quả đã đo trên diện rộng.',
+    screenshotNote: 'Giao diện minh họa — dữ liệu mẫu',
+    showcases: [
+      {
+        id: 'mobile',
+        kicker: 'Ứng dụng di động',
+        title: 'Nông dân chụp ảnh, nhận kết quả ngay tại ruộng',
+        points: [
+          'Chụp ảnh khóm lúa để AI nhận diện bệnh và độ tin cậy',
+          'Nhận cảnh báo nguy cơ và hướng dẫn xử lý',
+          'Giao diện tối giản, hỗ trợ ngoại tuyến khi mất sóng',
+        ],
+      },
+      {
+        id: 'dashboard',
+        kicker: 'Trang quản trị',
+        title: 'Ban quản lý HTX nhìn toàn vùng trồng trên một màn hình',
+        points: [
+          'Bản đồ cảnh báo nguy cơ theo từng thửa ruộng',
+          'Danh sách cảnh báo mới và điều kiện thời tiết hiện tại',
+          'Nhật ký đồng ruộng số phục vụ truy xuất nguồn gốc',
+        ],
+      },
+    ],
     items: [
       {
         title: 'Trạm cảm biến IoT',
@@ -67,41 +94,25 @@ export const landing = {
       },
     ],
   },
-  features: {
-    title: 'Ba trụ cột công nghệ',
-    items: [
-      {
-        title: 'Đánh giá nguy cơ hai tầng',
-        body: 'Kết hợp dữ liệu vi khí hậu và hình ảnh thực địa để lọc cảnh báo sai trước khi khuyến cáo phun thuốc.',
-      },
-      {
-        title: 'Khoanh vùng tối ưu chi phí',
-        body: 'Xác định vùng rủi ro cao và khu vực đệm để xử lý tập trung, tránh phun tràn lan cả cánh đồng.',
-      },
-      {
-        title: 'Nhật ký đồng ruộng số',
-        body: 'Tự động lưu chuỗi môi trường, cảnh báo và lịch sử chăm sóc — hỗ trợ VietGAP, mã số vùng trồng và truy xuất nguồn gốc.',
-      },
-    ],
-  },
   benefits: {
     title: 'Lợi ích hướng tới',
-    lead: 'Các mục tiêu dưới đây lấy từ kế hoạch thử nghiệm thực địa trong thuyết minh — chưa phải kết quả đã đo trên diện rộng.',
+    lead: 'Mục tiêu lấy từ kế hoạch thử nghiệm thực địa trong thuyết minh dự án.',
     figure: '20%–30%',
+    figureLabel: 'Mục tiêu giảm thuốc BVTV tại vùng khoanh vùng',
     figureNote:
       'Mục tiêu kiểm chứng tại lô thử nghiệm 2–5 ha — chưa phải kết quả đã đo trên diện rộng.',
     items: [
       {
-        title: 'Giảm thuốc BVTV tại vùng khoanh vùng',
-        body: 'Thử nghiệm thực địa đặt mục tiêu giảm 20%–30% lượng thuốc bảo vệ thực vật tại khu vực được khoanh vùng so với thói quen phun diện rộng.',
+        title: 'Khoanh vùng xử lý tập trung',
+        body: 'Xác định vùng rủi ro cao và vùng đệm, tránh phun tràn lan cả cánh đồng.',
       },
       {
         title: 'Tiết kiệm công thăm đồng',
-        body: 'Ban quản lý theo dõi điểm cảnh báo trên web để điều phối kỹ thuật viên đúng vị trí cần kiểm tra.',
+        body: 'Ban quản lý xem điểm cảnh báo trên web, điều phối kỹ thuật viên đúng vị trí.',
       },
       {
         title: 'Hồ sơ minh bạch',
-        body: 'Dữ liệu môi trường và lịch sử chăm sóc tự động lưu trữ, hỗ trợ chứng nhận an toàn và truy xuất nguồn gốc.',
+        body: 'Tự động lưu môi trường và lịch sử chăm sóc — hỗ trợ VietGAP, mã số vùng trồng, truy xuất nguồn gốc.',
       },
     ],
   },
@@ -127,26 +138,31 @@ export const landing = {
     ],
   },
   socialProof: {
-    title: 'Đồng hành chuyên môn',
-    lead: 'Không liệt kê giải thưởng chưa có. Các bên dưới là loại hình hợp tác / cố vấn nêu trong thuyết minh.',
+    title: 'Vì sao có thể tin tưởng',
+    lead: 'Đội ngũ có cố vấn chuyên môn, cam kết rõ ràng và minh bạch về giai đoạn phát triển.',
+    mentorsTitle: 'Cố vấn chuyên môn',
     items: [
       {
-        title: 'Mentor kỹ thuật',
-        body: 'ThS. Nguyễn Trung Kiệt và ThS. Trần Nhật Nam (Đại học Thủ Dầu Một) cố vấn kiến trúc phần mềm, AI và IoT.',
-      },
-      {
         title: 'Tham vấn chuyên ngành',
-        body: 'Cơ chế tham vấn với cán bộ kỹ thuật / chuyên gia Chi cục Trồng trọt & BVTV, khuyến nông hoặc viện/trường nghiên cứu.',
+        body: 'Tham vấn cán bộ kỹ thuật Chi cục Trồng trọt & BVTV, khuyến nông hoặc viện/trường nghiên cứu.',
       },
       {
         title: 'Đối tác dịch vụ UAV',
-        body: 'Hợp tác đội bay địa phương theo mô hình dịch vụ — không đầu tư mua sắm thiết bị bay trong giai đoạn hiện tại.',
+        body: 'Hợp tác đội bay địa phương theo mô hình dịch vụ — không đầu tư thiết bị bay ở giai đoạn hiện tại.',
+      },
+      {
+        title: 'Bảo hành 12 tháng',
+        body: 'Bảo hành 1 đổi 1 linh kiện trạm IoT (mạch điều khiển, cảm biến) nếu lỗi kỹ thuật.',
+      },
+      {
+        title: 'Dữ liệu thuộc về khách hàng',
+        body: 'Quyền sở hữu dữ liệu gốc thuộc về HTX / doanh nghiệp; ký văn bản bảo mật, không bán cho bên thứ ba khi chưa được đồng ý.',
       },
     ],
   },
   finalCta: {
-    title: 'Sẵn sàng tìm hiểu giải pháp?',
-    body: 'Xem trang chủ để đi sâu từng hạng mục, hoặc liên hệ nhóm dự án để trao đổi nhu cầu vùng trồng.',
+    title: 'Trao đổi nhu cầu vùng trồng của bạn',
+    body: 'Đăng ký tư vấn để nhóm dự án tư vấn số trạm IoT và gói dịch vụ phù hợp diện tích hợp tác xã.',
   },
 }
 
@@ -170,7 +186,64 @@ export const homePage = {
       body: 'Hướng tới giảm tồn dư hóa chất, bảo vệ sức khỏe cộng đồng và hệ sinh thái đất, nước.',
     },
   ],
+  hero: {
+    secondaryCta: { label: 'Xem sản phẩm', to: '/san-pham' },
+  },
+  about: {
+    kicker: 'Giới thiệu',
+    title: 'Đội ngũ RiceGuardian AI',
+    teamLabel: 'Thành viên & cố vấn',
+    link: { label: 'Tìm hiểu đội ngũ', to: '/gioi-thieu' },
+  },
+  values: {
+    kicker: 'Giá trị cốt lõi',
+    title: 'Điều chúng tôi theo đuổi',
+  },
+  tech: {
+    kicker: 'Công nghệ',
+    title: 'Công nghệ cốt lõi',
+    lead: brand.shortDescription,
+  },
+  process: {
+    kicker: 'Quy trình',
+    title: 'Quy trình cung cấp dịch vụ',
+    link: { label: 'Xem chi tiết dịch vụ', to: '/dich-vu' },
+  },
+  ctaBand: {
+    title: 'Cần tư vấn cho vùng trồng của bạn?',
+    body: landing.finalCta.body,
+  },
+  products: {
+    kicker: 'Sản phẩm',
+    title: landing.product.title,
+    lead: landing.product.lead,
+    link: { label: 'Xem chi tiết sản phẩm', to: '/san-pham' },
+  },
+  support: {
+    kicker: 'Hỗ trợ',
+    title: 'Liên hệ nhóm dự án',
+    callTitle: 'Gọi hotline',
+    callBody: 'Trao đổi trực tiếp về nhu cầu tư vấn trạm IoT và gói dịch vụ.',
+    messageTitle: 'Gửi câu hỏi',
+    messageCta: { label: 'Đến trang Liên hệ', to: '/lien-he' },
+  },
+  news: {
+    kicker: 'Tin tức',
+    title: 'Tin thị trường lúa gạo mới nhất',
+    link: { label: 'Xem tất cả tin', to: '/tin-tuc' },
+    limit: 3,
+  },
 }
+
+/** Ô công nghệ trên trang chủ — chỉ tham chiếu nội dung đã có, không thêm claim mới. */
+export const homeTechTiles = [
+  { id: 'iot', icon: 'station', ...landing.product.items[0] },
+  { id: 'risk', icon: 'chart', title: 'AI đánh giá nguy cơ', body: landing.solution.tiers[0].body },
+  { id: 'verify', icon: 'camera', title: 'Xác minh hình ảnh', body: landing.solution.tiers[1].body },
+  { id: 'mobile', icon: 'phone', ...landing.product.items[1] },
+  { id: 'dashboard', icon: 'monitor', ...landing.product.items[2] },
+  { id: 'uav', icon: 'drone', ...productPage.hardware[1] },
+]
 
 export const faqItems = [
   {
